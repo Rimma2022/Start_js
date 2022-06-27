@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks_JS</title>
+</head>
+
+<body>
+    <script>
+        //Task1
+        //Запросите у пользователя число, возведите это число во 2-ю степень и выведите на экран.
+        let number = prompt("Enter a number");
+        let numberSquared = number ** 2;
+        alert(numberSquared);
+
+        //Task2
+        //Зарплата работника составляет $250 + 10% от продаж. Запросите общую сумму продаж за месяц и посчитайте зарплату
+        let salary = 250;
+        let sales = prompt("Enter sales amount");
+        let wage = salary + sales * 0.1;
+        alert(wage);
+
+        //Task3
+        //(используйте условные операторы) Запросить у пользователя название планеты. Если пользователь ввел «Земля» или «земля», 
+        //то вывести «Привет,землянин!», в остальных случаях вывести «Привет, инопланетянин!».
+        let planet = prompt("Enter planet name");
+        if (planet == "Земля" || planet == "земля") {
+            alert("Hello, Earthman!");
+        } else {
+            alert("Hello, alien!");
+        }
+
+        //Task4
+        //(используйте циклы) Из-за утечки из бака охлаждения ежедневно вытекает 10% налитой воды. При объеме воды менее 10 литров возникает аварийная
+        //ситуация. Составьте программу, которая запрашивает у пользователя первоначальный объем воды и рассчитывает, на сколько дней работы этого хватит.
+        let initialWaterVolume = prompt("Enter initial water volume");
+        let minWaterVolume = 10;
+        let count = 0;
+        let factWaterVolume = initialWaterVolume;
+        while (factWaterVolume >= minWaterVolume) {
+            factWaterVolume = factWaterVolume - (factWaterVolume * 0.1);
+            count++;
+        }
+        alert(`Enough water for ${count} days`);
+
+        //Task5
+        // Написать функцию, которая принимает 2 числа и возвращает меньшее из них.
+        function min(x1, x2) {
+            return x1 <= x2 ? x1 : x2;
+        }
+        // console.log(min(7, 5));
+        let minx = min(7, 5);
+        alert(minx);
+
+        //Task6
+        //Написать функцию, которая выводит все четные или нечетные числа, в указанном пользователем диапазоне. Какие числа выводить, определяется 
+        //третьим параметром типа bool (true – четные, false – нечетные)        
+        function PositivNegativNumbers(xStart, xFinish, isTrue) {            
+            if (isTrue == true) {
+                document.write("Positive numbers: ");
+                for (let index = xStart; index <= xFinish; index++) {
+                    if (index % 2 == 0) {
+                        // alert(index);
+                        document.write(index + " ");
+                    }
+                }
+            } else {
+                document.write("Negative numbers: ");
+                for (let index = xStart; index <= xFinish; index++) {
+                    if (index % 2 != 0) {
+                        // alert(index);
+                        document.write(index + " ");
+                    }
+                }
+            }
+        }
+        let xStart = prompt("Enter the beginning of the range");
+        let xFinish = prompt("Enter the end of the range");
+        let isTrue = confirm("Enter <<OK>> if you need positive numbers and <<Отмена>> , if you need negative numbers");
+        PositivNegativNumbers(xStart, xFinish, isTrue);
+    </script>
+
+</body>
+
+</html>
